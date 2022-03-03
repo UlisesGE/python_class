@@ -1,6 +1,6 @@
 # Mis notas de la materia de Python I
 
-__Nombre:__ Ulises Gaspar 
+__Nombre:__ Ulises Gaspar Gen.19
 
 *Fecha: 03/03/2022*
 
