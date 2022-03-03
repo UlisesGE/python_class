@@ -1,8 +1,8 @@
 # Mis notas de la materia de Python I
 
-__Nombre:__ Ulises Gaspar
+__Nombre:__ Ulises Gaspar 
 
-*Fecha: 03/02/2022*
+*Fecha: 03/03/2022*
 
 [LCG](https://www.lcg.unam.mx/
 
@@ -133,3 +133,5 @@ Compara con el último **commit add**, no cualquier modificación.
 **Ramas de git:** 
 
 Una rama de Git es un apuntador que nos permitirá hacer referencia a cada una de las confirmaciones (commits). La rama por defecto de Gir es la rama master. 
+
+##Git y GitHub
