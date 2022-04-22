@@ -34,7 +34,10 @@ sequence.rstrip("\n")
 #Se obtiene la longitud de la secuencia
 seq_length = len(sequence)
 
+AT_content = ((file_content.count('A') + file_content.count('T')) / longitud) * 100
+GC_content = ((file_content.count('G') + file_content.count('C')) / longitud) * 100 
+
 #Se obtienen los porcentajes
 print(f"Porcentajes: ")
-print(f"AT = {((sequence.count('A') + sequence.count('T')) / seq_length) * 100} %")
-print(f"GC = {((sequence.count('G') + sequence.count('C')) / seq_length) * 100} %")
+print(f"AT = {AT_content} %")
+print(f"GC = {GC_content} %")
