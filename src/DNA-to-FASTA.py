@@ -14,7 +14,7 @@ CATEGORY
         FASTA 
 
 USAGE
-         py src/DNA-to-FASTA.py
+         python DNA-to-FASTA.py
 
 
 ARGUMENTS
@@ -27,16 +27,17 @@ SEE ALSO
 
 '''
 #Abrir el archivo y copiar el contenido a una lista; abrir un archivo tipo FASTA
-sequence_file = open("dna.txt", "r")
+sequence_file = open("../data/dna.txt", "r")
 sequence = sequence_file.readlines()
 sequence_file.close()
-FASTA = open("sequence.fasta", "w")
+FASTA = open("../results/sequence.fasta", "w")
 
 # Se solicita un ID
-ID = input("Introduzca un ID de la secuencia: ")
+ID = input("Introduzca un ID de la secuencia:\n")
 
 #Se meten los contenidos al archivo ya creado
 FASTA.write(f">{ID}\n{sequence}")
 
-#Se cierra el archivo
+#Se cierran los archivos
 sequence_file.close()
+FASTA.close()
