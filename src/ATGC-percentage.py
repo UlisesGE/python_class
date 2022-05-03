@@ -26,13 +26,13 @@ USAGE
 file_name = input("Escribe el nombre de tu archivo y su posicion: ")
 
 with open(file_name, 'r') as file:
-        sequence = file.read()
+        file_content = file.read()
 
 #Se elimina el salto de linea 
-sequence.rstrip("\n")
+file_content.rstrip("\n")
 
 #Se obtiene la longitud de la secuencia
-seq_length = len(sequence)
+longitud = len(file_content)
 
 AT_content = ((file_content.count('A') + file_content.count('T')) / longitud) * 100
 GC_content = ((file_content.count('G') + file_content.count('C')) / longitud) * 100 
