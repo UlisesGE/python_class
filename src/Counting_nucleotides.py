@@ -14,23 +14,28 @@ CATEGORY
         Script
 
 USAGE
-         py src/Counting_nucleotides.py
+         python Counting_nucleotides.py
 
 
 ARGUMENTS
-    Ninguno
+       Ninguno
 
     
 SEE ALSO
         Ninguno
 
-
 '''
 #Se lee una secuencia del usuario del teclad+o
 secuencia = input('Introduce una secuencia:\n')
 
-#Se cuenta y se imprime la cantidad de cada letra de la secuencia
-print("Numero de G:", secuencia.count("G"))
-print("Numero de A:", secuencia.count("A"))
-print("Numero de T:", secuencia.count("T"))
-print("Numero de C:", secuencia.count("C"))
+# Realizar conteo de cada base
+freq_A = secuencia.count('A')
+freq_C = secuencia.count('C')
+freq_G = secuencia.count('G')
+freq_T = secuencia.count('T')
+
+# Imprimir el resultado
+print(f"""El numero de A es: {freq_A}
+El numero de C es: {freq_C}  
+El numero de G es: {freq_G}  
+El numero de T es: {freq_T}""")
