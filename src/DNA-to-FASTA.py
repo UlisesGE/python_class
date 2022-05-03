@@ -27,7 +27,7 @@ SEE ALSO
 
 '''
 #Abrir el archivo y copiar el contenido a una lista; abrir un archivo tipo FASTA
-sequence_file = open("dna.txt", "r")
+sequence_file = open("data/dna.txt", "r")
 sequence = sequence_file.readlines()
 sequence_file.close()
 FASTA = open("sequence.fasta", "w")

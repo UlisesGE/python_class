@@ -2,7 +2,7 @@
        counting_nucleotides
 
 VERSION
-        1.2
+        1.1
 
 AUTHOR
         Hector Ulises Gaspar <hectorgasp@gmail.com>
