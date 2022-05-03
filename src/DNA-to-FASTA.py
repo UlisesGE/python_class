@@ -27,11 +27,9 @@ SEE ALSO
 
 '''
 #Abrir el archivo y copiar el contenido a una lista; abrir un archivo tipo FASTA
-<<<<<<< HEAD
-sequence_file = open("data/dna.txt", "r")
-=======
+
 sequence_file = open("../data/dna.txt", "r")
->>>>>>> a3b318996026560ab3bbbec2e89bcd92eaddd645
+
 sequence = sequence_file.readlines()
 sequence_file.close()
 FASTA = open("../results/sequence.fasta", "w")

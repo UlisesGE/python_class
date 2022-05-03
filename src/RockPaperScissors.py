@@ -12,7 +12,7 @@ DESCRIPTION
 	Simulación de el juego piedra papel o tijeras
     
 CATEGORY
-	Recreación
+    Recreación
     
 USAGE
     py src/rockpaperscissors.py
