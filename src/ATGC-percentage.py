@@ -25,19 +25,24 @@ USAGE
 #Se obtiene el nombre del archivo de la secuencia: 
 file_name = input("Escribe el nombre de tu archivo y su posicion: ")
 
-with open(file_name, 'r') as file:
-        file_content = file.read()
+#Se agrega un try-except para detectar errores en la ruta y/o nombre del archivo
+try:
+        with open(file_name, 'r') as file:
+                file_content = file.read()
+except IOError as io_error:
+        print(f"El archivo {io_error.filename} no se encontró en la ruta especificada")
 
-#Se elimina el salto de linea 
-file_content.rstrip("\n")
+else:
+        #Se elimina el salto de linea 
+        file_content.rstrip("\n")
 
-#Se obtiene la longitud de la secuencia
-longitud = len(file_content)
+        #Se obtiene la longitud de la secuencia
+        longitud = len(file_content)
 
-AT_content = ((file_content.count('A') + file_content.count('T')) / longitud) * 100
-GC_content = ((file_content.count('G') + file_content.count('C')) / longitud) * 100 
+        AT_content = ((file_content.count('A') + file_content.count('T')) / longitud) * 100
+        GC_content = ((file_content.count('G') + file_content.count('C')) / longitud) * 100 
 
-#Se obtienen los porcentajes
-print(f"Porcentajes: ")
-print(f"AT = {AT_content} %")
-print(f"GC = {GC_content} %")
+        #Se obtienen los porcentajes
+        print(f"Porcentajes: ")
+        print(f"AT = {AT_content} %")
+        print(f"GC = {GC_content} %")
