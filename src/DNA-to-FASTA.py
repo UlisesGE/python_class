@@ -28,18 +28,24 @@ SEE ALSO
 '''
 #Abrir el archivo y copiar el contenido a una lista; abrir un archivo tipo FASTA
 
-sequence_file = open("../data/dna.txt", "r")
+#Se agrega una excepcion en caso de que el archivo no se encuente en la ruta que deberia, especificada por el ejercicio
+try:
+        sequence_file = open("data/dna.txt", "r")
 
-sequence = sequence_file.readlines()
-sequence_file.close()
-FASTA = open("../results/sequence.fasta", "w")
+        sequence = sequence_file.readlines()
+        sequence_file.close()
+except IOError as io_error:
+        print(f"El archivo {sequence_file} no se encuentra.\n")
 
-# Se solicita un ID
-ID = input("Introduzca un ID de la secuencia:\n")
+else:
+        FASTA = open("results/sequence.fasta", "w")
 
-#Se meten los contenidos al archivo ya creado
-FASTA.write(f">{ID}\n{sequence}")
+        # Se solicita un ID
+        ID = input("Introduzca un ID de la secuencia:\n")
 
-#Se cierran los archivos
-sequence_file.close()
-FASTA.close()
+        #Se meten los contenidos al archivo ya creado
+        FASTA.write(f">{ID}\n{sequence}")
+
+        #Se cierran los archivos
+        sequence_file.close()
+        FASTA.close()
