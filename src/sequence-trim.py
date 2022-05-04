@@ -24,7 +24,7 @@ try:
         with open('../data/4_input_adapters.txt','r') as file:
                 adapters = file.readlines()
 except IOError as io_error:
-        print(f"No se encontró {io_error.filrname} en la ruta especificada")
+        print(f"No se encontró {io_error.filename} en la ruta especificada")
 else:
         #Se crea un archivo nuevo, donde se guardarán las secuencias recortadas
         trimmed = open('../results/trimmed.txt', "w")
