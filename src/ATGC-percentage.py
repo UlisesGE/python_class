@@ -24,6 +24,7 @@ USAGE
 '''
 import argparse
 
+#Se agrega el paso de argumentos 
 arg_parser = argparse.ArgumentParser(description = "Calcula el contenido AT y GC, dado una ruta de un archivo de secuencia de DNA")
 
 arg_parser.add_argument("-i", "--input",
@@ -41,6 +42,7 @@ arg_parser.add_argument("-r", "--round",
                     type=int,
                     required=False)
 
+#El input del argumeto -i se guarda en la antigua variable file name
 args = arg_parser.parse_args()
 file_name = args.input
 
