@@ -2,7 +2,7 @@
        AT-percentage
 
 VERSION
-        1.2
+        1.7
 
 AUTHOR
         Hector Ulises
@@ -22,8 +22,27 @@ USAGE
     % python AT-percentage.py -i sequence.txt
         
 '''
-#Se obtiene el nombre del archivo de la secuencia: 
-file_name = input("Escribe el nombre de tu archivo y su posicion: ")
+import argparse
+
+arg_parser = argparse.ArgumentParser(description = "Calcula el contenido AT y GC, dado una ruta de un archivo de secuencia de DNA")
+
+arg_parser.add_argument("-i", "--input",
+                    metavar="path/to/file",
+                    help="File with gene sequences",
+                    required=True)
+
+arg_parser.add_argument("-o", "--output",
+                    metavar="path/to/output/file",
+                    help="Path for the output file",
+                    required=False)
+                    
+arg_parser.add_argument("-r", "--round",
+                    help="Number of digits to round",
+                    type=int,
+                    required=False)
+
+args = arg_parser.parse_args()
+file_name = args.input
 
 #Se agrega un try-except para detectar errores en la ruta y/o nombre del archivo
 try:
