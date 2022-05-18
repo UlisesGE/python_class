@@ -2,7 +2,7 @@
        aminoacid_percentage
 
 VERSION
-        1.0
+        1.1
 
 AUTHOR
         Hector Ulises Gaspar <hectorgasp@gmail.com>
@@ -36,5 +36,8 @@ def rana(sequence, aminoacid):
     sequence_length = len(sequence)
     return (sequence.upper().count(aminoacid.upper())/sequence_length)*100
 
+assert rana("AILMFWYV", "Y") == 12.5
+
 percentage = rana(sequence, aminoacid)
-print(percentage)
+print(f"El total de {str(aminoacid.upper())} de la secuenca es {percentage} %")
+
