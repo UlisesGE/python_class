@@ -2,7 +2,7 @@
        aminoacid_percentage
 
 VERSION
-        1.2
+        1.3
 
 AUTHOR
         Hector Ulises Gaspar <hectorgasp@gmail.com>
@@ -18,7 +18,7 @@ USAGE
 
 
 ARGUMENTS
-       
+       None
 
     
 SEE ALSO
