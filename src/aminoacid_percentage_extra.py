@@ -28,6 +28,14 @@ SEE ALSO
 sequence = input('Introduce una secuencia de aminoacidos: ')
 aminoacids = input('Introduce aminoacidos a buscar: ')
 def sapo(sequence, aminoacids = ['A','I','L','M','F','W','Y','V']):
+        '''
+    Returns the percentage of aminoacids in a sequence
+        Parameters: 
+                sequence (str): User's aminoacid sequence
+                aminoacids (list): The speceific aminoacid the user wants to get the percentage of. By default ['A','I','L','M','F','W','Y','V']
+        Returns:
+                percentage(float): The percentage of a speceific aminoacid in the given sequence
+    '''
     sequence_length = len(sequence)
     count = 0
     for i in range(0, len(aminoacids)):

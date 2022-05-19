@@ -33,7 +33,14 @@ aminoacid = input('Introduce el aminoácido para obtemer el porcentaje:')
 
 #Se define la variable con un nombre cool pq las ranas son cool
 def rana(sequence, aminoacid):
-    #Se obtiene la longitud de la secuencia introducida por el usuario
+    '''
+    Returns the percentage of aminoacids in a sequence
+        Parameters: 
+                sequence: User's aminoacid sequence
+                aminoacid: The speceific aminoacid the user wants to get the percentage of
+        Returns:
+                percentage(float): The percentage of a speceific aminoacid in the given sequence
+    '''
     sequence_length = len(sequence)
     #Se calcula el porcentaje del aminoacido y se regresa el valor obtenido
     return (sequence.upper().count(aminoacid.upper())/sequence_length)*100
