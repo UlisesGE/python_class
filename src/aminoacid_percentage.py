@@ -2,7 +2,7 @@
        aminoacid_percentage
 
 VERSION
-        1.3
+        1.4
 
 AUTHOR
         Hector Ulises Gaspar <hectorgasp@gmail.com>
@@ -14,29 +14,33 @@ CATEGORY
         Script
 
 USAGE
-         python aminoacid_percentage.py
+         python aminoacid_percentage.py -s AILMFWYV -a M
 
 
 ARGUMENTS
-       None
+        -a --aminoacids 
+        -s --sequence
+        -h --help
 
     
 SEE ALSO
         Ninguno
 
 '''
-
+#Se importa argparse
 import argparse
+#Se importa re
+import re
 
 arg_parser = argparse.ArgumentParser(description = "Calcula el porcentaje de un aminoaciod, dado una secuencia de un polipeptido")
 
+#Se asignan argumentos para que el programa use
 arg_parser.add_argument("-s", "--sequence",
                     metavar="S E Q U E N C E",
                     help="Sequence from which to calcula the percentage",
                     type = str,
                     required=True)
 
-                    
 arg_parser.add_argument("-a", "--aminoacid",
                     help="aminoacid you want the percentage of",
                     type = str,
@@ -46,11 +50,6 @@ arg_parser.add_argument("-r", "--round",
                     help="Number of digits to round",
                     type=int,
                     required=False)
-
-#Se pide al usuaro que introduzca la secuencia de aminoacidos asi como el aminoaciod del que quiere el porcentaje
-#sequence = input('Introduce una secuencia de aminoácidos:')
-
-#aminoacid = input('Introduce el aminoácido para obtener el porcentaje:')
 
 arguments = arg_parser.parse_args()
 
@@ -74,10 +73,7 @@ assert rana("MSRSLLLRFLLFLLLLPPLP", "r") == 10
 assert rana("msrslllrfllfllllpplp", "L") == 50
 assert rana("MSRSLLLRFLLFLLLLPPLP", "Y") == 0
 
-
-percentage = rana(sequence = arguments.sequence, aminoacid = arguments.aminoacid)
-print(f"El porcentaje del aminoacido {str(arguments.aminoacid)} es: {percentage}")
 #Se garda lo que regresa la funcion en la variable percentage
-#percentage = rana(sequence, aminoacid)
+percentage = rana(sequence = arguments.sequence, aminoacid = arguments.aminoacid)
 #Se imprime el valor obtenido
-#print(f"El total de {str(aminoacid.upper())} de la secuenca es {percentage}%")
+print(f"El porcentaje del aminoacido {str(arguments.aminoacid)} es: {percentage}")
