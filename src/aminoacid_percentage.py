@@ -53,8 +53,10 @@ arg_parser.add_argument("-r", "--round",
 
 arguments = arg_parser.parse_args()
 
+#class Invalid
+
 #Se define la variable con un nombre cool pq las ranas son cool
-def rana(sequence, aminoacid):
+def rana(sequence, aminoacid, decimals = 4):
     '''
     Returns the percentage of aminoacids in a sequence
         Parameters: 
@@ -65,15 +67,11 @@ def rana(sequence, aminoacid):
     '''
     sequence_length = len(sequence)
     #Se calcula el porcentaje del aminoacido y se regresa el valor obtenido
-    return (sequence.upper().count(aminoacid.upper())/sequence_length)*100
-
-#se hacen asserts para probar la funcion
-assert rana("MSRSLLLRFLLFLLLLPPLP", "M") == 5
-assert rana("MSRSLLLRFLLFLLLLPPLP", "r") == 10
-assert rana("msrslllrfllfllllpplp", "L") == 50
-assert rana("MSRSLLLRFLLFLLLLPPLP", "Y") == 0
+    percent = (sequence.upper().count(aminoacid.upper())/sequence_length)*100
+    percent = round(percent, decimals)
+    return percent
 
 #Se garda lo que regresa la funcion en la variable percentage
-percentage = rana(sequence = arguments.sequence, aminoacid = arguments.aminoacid)
+percentage = rana(sequence = arguments.sequence, aminoacid = arguments.aminoacid, decimals = arguments.round)
 #Se imprime el valor obtenido
 print(f"El porcentaje del aminoacido {str(arguments.aminoacid)} es: {percentage}")
