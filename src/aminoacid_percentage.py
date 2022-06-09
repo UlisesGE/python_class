@@ -40,7 +40,7 @@ arg_parser.add_argument("-s", "--sequence",
                     metavar="S E Q U E N C E",
                     help="Sequence from which to calcula the percentage",
                     type = str,
-                    required=True)
+                    required=False)
 
 arg_parser.add_argument("-a", "--aminoacid",
                     help="aminoacid you want the percentage of",
