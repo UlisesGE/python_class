@@ -53,7 +53,8 @@ arg_parser.add_argument("-r", "--round",
 
 arguments = arg_parser.parse_args()
 
-#class Invalid
+class NotAnAminoacidError(Exception):
+        pass
 
 #Se define la variable con un nombre cool pq las ranas son cool
 def rana(sequence, aminoacid, decimals = 4):
@@ -65,11 +66,16 @@ def rana(sequence, aminoacid, decimals = 4):
         Returns:
                 percentage(float): The percentage of a speceific aminoacid in the given sequence
     '''
-    sequence_length = len(sequence)
-    #Se calcula el porcentaje del aminoacido y se regresa el valor obtenido
-    percent = (sequence.upper().count(aminoacid.upper())/sequence_length)*100
-    percent = round(percent, decimals)
-    return percent
+    #Se revisa que la secuencia solo contenga aminoacidos validos
+    if re.search("[^GALMFWKQESPVICYHRNDT]", sequence):
+            #Si no, se avisa al usuario que la secuencia no es valida
+            raise NotAnAminoacidError(f"La secuencia no es valida")
+    else:
+        sequence_length = len(sequence)
+        #Se calcula el porcentaje del aminoacido y se regresa el valor obtenido
+        percent = (sequence.upper().count(aminoacid.upper())/sequence_length)*100
+        percent = round(percent, decimals)
+        return percent
 
 #Se garda lo que regresa la funcion en la variable percentage
 percentage = rana(sequence = arguments.sequence, aminoacid = arguments.aminoacid, decimals = arguments.round)
