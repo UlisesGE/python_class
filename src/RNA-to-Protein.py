@@ -12,7 +12,7 @@ USAGE
          python RNA-to-Protein.py -s DNA/RNAsequece
 ARGUMENTS
         none
-    
+
 SEE ALSO
         Ninguno
 '''
@@ -43,7 +43,6 @@ def DNA_test(seq):
     except ValueError:
         print(f"La secuencia no es valida, contiene caracteres no identificados")
     else:
-        seq = seq.replace("U", "T")
         return(seq)
 
 '''
@@ -60,7 +59,7 @@ def Translation(dna, aminoacids):
 
 aminoacids = []
 seq = input("Introduce tu secuencia de DNA o RNA: \n")
-seq = seq.upper()
+seq = seq.upper().replace("U", "T")
 
 
 dna = DNA_test(seq)
