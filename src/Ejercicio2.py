@@ -3,7 +3,7 @@ NAME
 	secuencias.py
     
 VERSION
-    1.0
+    1.3
     
 AUTHOR
     Hector Ulises Gaspar	
@@ -59,7 +59,13 @@ def LongestPeptide(sequence):
         TempCompSequences = sequence[Complementary_ORFs[i]:]
         AllPeptides.append(str(TempCompSequences.translate(to_stop=True)))
 
-    return(max(AllPeptides))
+    lenghts = []
+
+    for Peptide in AllPeptides:
+        lenghts.append(len(Peptide))
+
+    THEpeptide = AllPeptides[lenghts.index(max(lenghts))]
+    return THEpeptide
 
 
 Peptide = LongestPeptide(sequence)
