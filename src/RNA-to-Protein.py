@@ -1,42 +1,23 @@
 '''NAME
        RNA-to-Protein
-
 VERSION
-        1.0
-
+        1.1
 AUTHOR
         Hector Ulises Gaspar <hectorgasp@gmail.com>
-
 DESCRIPTION
         Este script obtiene el peptido codificado por una secuencia de DNA o RNA dada por el usuario
-
 CATEGORY
         Script
-
 USAGE
          python RNA-to-Protein.py -s DNA/RNAsequece
-
-
 ARGUMENTS
-        - s --sequence
+        none
     
 SEE ALSO
         Ninguno
-
 '''
 
-import argparse
 import re
-
-arg_parser = argparse.ArgumentParser(description = "Obtiene las regiones ricas en AT y su posición, dado un archivo de secuencia y el tamaño minimo de la region")
-
-#Se asignan argumentos para que el programa use
-arg_parser.add_argument("-s", "--sequence",
-                    help="User's sequence",
-                    type=str,
-                    required=True)
-
-arguments = arg_parser.parse_args()
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M', 'ACA':'T',
@@ -53,22 +34,49 @@ gencode = {
     'TTG':'L', 'TAC':'Y', 'TAT':'Y', 'TAA':'_', 'TAG':'_',
     'TGC':'C', 'TGT':'C', 'TGA':'_', 'TGG':'W'}
 
-seq = arguments.sequence
 
-def test_rna(rna):
-    no_rna = re.findall(r"[^ATGCU]", rna)
+def DNA_test(seq):
     try:
-        if re.search(r"[^ATGCU]", rna):
+        if re.search("[^ATGCU]", seq):
+            #Si no, se avisa al usuario que la secuencia no es valida
             raise ValueError
     except ValueError:
-        print(f"La secuencia genética contiene caracteres no identificados como nucleótidos: {no_rna}")
-        print("Desea intentar de nuevo?(y/n)")
-        result=input()
-        if result == "y":
-            newrna=input("Introduzca su nueva secuencia de RNA:")
-            newrna = newrna.upper()
-            test_rna(newrna)
-        else:
-            exit()
+        print(f"La secuencia no es valida, contiene caracteres no identificados")
     else:
-        return(rna)
+        seq = seq.replace("U", "T")
+        return(seq)
+
+'''
+def Translation(dna, aminoacids):
+    for i in range(0, len(dna), 3):
+        codon = dna[i:i+3]
+        if gencode[codon] == "_":
+            break
+        else:
+            print(codon)
+            aminoacids.append(gencode[codon])
+            return(aminoacids)
+'''
+
+aminoacids = []
+seq = input("Introduce tu secuencia de DNA o RNA: \n")
+seq = seq.upper()
+
+
+dna = DNA_test(seq)
+
+#peptide = "".join(Translation.aminoacids)
+
+#print("El peptido codificado por la secuencia es: " + peptide)
+
+for i in range(0, len(seq), 3):
+    codon = seq[i:i+3]
+
+    if gencode[codon] == "_":
+        break
+    else:
+        #print(codon)
+        aminoacids.append(gencode[codon])
+
+peptide = "".join(aminoacids)
+print("El peptido codificado por la secuencia es: " + peptide)
