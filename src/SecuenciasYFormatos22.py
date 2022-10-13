@@ -43,7 +43,7 @@ arg_parser.add_argument("-i", "--input",
 
 args = arg_parser.parse_args()
 
-for gb_record in SeqIO.parse(args.input, "genebank"):
+for gb_record in SeqIO.parse(args.input, "genbank"):
     print("\n Annotations: \n")
     print('ID', gb_record.annotations['organism'])
     print('Date', gb_record.annotations['date'])
